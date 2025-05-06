@@ -19,13 +19,6 @@ Inspired by [gpt-repository-loader](https://github.com/mpoon/gpt-repository-load
 
 # Installing
 
-## Prerequisites
-
-*   Python 3.8+ (Recommended, potentially 3.9+ needed for full `ast` features like `unparse`. Check `setup.py` or `pyproject.toml`.)
-*   Git (Required for extracting Git information via the `git` extractor)
-
-## Installation Steps
-
 1.  **Clone the Repository:**
     ```bash
     git clone https://github.com/MrCabss69/RepoGPT.git
