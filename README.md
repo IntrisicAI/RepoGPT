@@ -129,12 +129,7 @@ Here are a few ways to use RepoGPT:
     ```bash
     repogpt -f json | jq '.code_metrics.total_files'
     ```
-
-*(Consider adding links to actual example output files if you generate them)*
-*   `example_report.md` (Generated with default options)
-*   `example_report_detailed.md` (Generated with detail flags)
-*   `example_report.json` (Generated with `-f json`)
-
+    
 # Command-Line Options (Advanced Usage)
 
 *   `repo_path` (Positional): Path to the repository to analyze (default: `.`).
@@ -151,51 +146,3 @@ Here are a few ways to use RepoGPT:
 *   `--no-gitignore`: Disable using `.gitignore` rules for filtering.
 *   `--log-level`: Set logging detail level (DEBUG, INFO, WARNING, ERROR, CRITICAL; default: INFO). Log messages go to console (stderr) and `repogpt_analyzer.log`.
 *   `--version`: Show program's version number and exit.
-*   
-
-# Project Structure (RepoGPT Tool Itself)
-
-```bash
-    repogpt/
-    ├── __init__.py             # Package initializer, version
-    ├── __main__.py             # CLI entry point, argument parsing
-    ├── analyzer.py             # Core repository analysis logic
-    ├── exceptions.py           # Custom exception classes
-    │
-    ├── extractors/             # Modules for extracting specific data
-    │   ├── __init__.py
-    │   ├── base.py
-    │   ├── dependencies.py
-    │   ├── git.py
-    │   ├── metrics.py
-    │   ├── structure.py        # (Currently not used by default reporter)
-    │   └── todos.py
-    │
-    ├── parsers/                # Modules for parsing different file types
-    │   ├── __init__.py
-    │   ├── base.py
-    │   ├── python.py
-    │   ├── javascript.py
-    │   ├── markdown.py
-    │   ├── yaml_parser.py
-    │   ├── html.py
-    │   ├── dockerfile_.py      # Parses Dockerfiles
-    │   └── generic.py          # Fallback text parser
-    │
-    ├── reporting/              # Modules for generating reports
-    │   ├── __init__.py
-    │   ├── base.py
-    │   ├── json_reporter.py
-    │   └── markdown_reporter.py
-    │
-    └── utils/                  # Utility functions
-        ├── __init__.py
-        ├── file_utils.py       # Hashing, binary detection
-        ├── gitignore_handler.py # .gitignore parsing logic
-        ├── logging.py          # Logging setup
-        └── text_processing.py  # Comment/TODO extraction, blank line counting
-
-    README.md
-    setup.py                    # Or pyproject.toml for packaging/dependencies
-    repogpt_analyzer.log        # Default log file name
-```
